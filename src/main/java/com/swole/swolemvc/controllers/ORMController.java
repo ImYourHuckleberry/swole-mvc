@@ -45,22 +45,23 @@ import javax.validation.Valid;
             return"redirect:";
         }
 
-        //@RequestMapping(value = "remove", method = RequestMethod.GET)
-        //public String displayRemoveForm(Model model) {
-        //    model.addAttribute("One Rep Max", oRMDao.findAll());
-        //    model.addAttribute("orm", "Remove One Rep Max");
-        //    return "swole/remove";
-        //}
+        @RequestMapping(value = "remove", method = RequestMethod.GET)
+        public String displayRemoveForm(Model model) {
+            model.addAttribute("orms", oRMDao.findAll());
+            model.addAttribute("title", "Remove One Rep Max");
+            return "swole/remove";
+        }
 
-        //@RequestMapping(value = "remove", method = RequestMethod.POST)
-        //public String processRemoveForm(@RequestParam int[] oRMIds) {
+        @RequestMapping(value = "remove", method = RequestMethod.POST)
+        public String processRemoveForm(@RequestParam int[] oRMIds) {
 
-        //    for (int oRMId : oRMIds) {
-        //        oRMDao.delete(oRMId);
-        //    }
+            for (int oRMId : oRMIds) {
+                oRMDao.delete(oRMId);
+            }
 
-        //    return "redirect:";
-        //}
+            return "redirect:";
+        }
+
     }
 
 
