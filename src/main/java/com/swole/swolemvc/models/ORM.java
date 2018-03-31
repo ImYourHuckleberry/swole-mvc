@@ -1,22 +1,68 @@
 package com.swole.swolemvc.models;
 
+
+import com.sun.javafx.beans.IDProperty;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class ORM {
 
-    private long id;
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @NotNull
     private String deadlift;
+    @NotNull
     private String benchpress;
+    @NotNull
     private String overheadpress;
+    @NotNull
     private String squat;
+    @NotNull
     private String bentoverrow;
 
+    public Deadlift(String deadlift) {
+        this.deadlift = deadlift;
+    }
+    public Deadlift(){
 
-    public long getId() {
+    }
+    public overheadpress(String overheadpress) {
+        this.overheadpress = overheadpress;
+    }
+    public overheadpress(){
+
+    }
+
+    public benchpress(String benchpress) {
+        this.benchpress = benchpress;
+    }
+    public benchpress(){
+
+    }
+    public Squat(String squat) {
+        this.squat = squat;
+    }
+    public Squat(){
+
+    }
+    public bentoverrow(String bentoverrow) {
+        this.bentoverrow = getBentoverrow();
+    }
+    public bentoverrow(){
+
+    }
+
+
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getDeadlift() {
         return deadlift;
@@ -57,4 +103,6 @@ public class ORM {
     public void setBentoverrow(String bentoverrow) {
         this.bentoverrow = bentoverrow;
     }
+
+
 }
