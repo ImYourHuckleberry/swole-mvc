@@ -1,55 +1,66 @@
 package com.swole.swolemvc.controllers;
 
-import com.swole.swolemvc.models.Deadlift;
 import com.swole.swolemvc.models.ORM;
 import com.swole.swolemvc.models.data.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@Controller
-@RequestMapping ("form")
-//might have to change to "form"
-public class ORMController {
-    @Autowired
-    private DeadliftDao deadliftDao;
-    private OverHeadPressDao overHeadPressDao;
-    private BenchPressDao benchPressDao;
-    private SquatDao squatDao;
-    private BentOverRowDao bentOverRowDao;
+    @Controller
+    @RequestMapping("swole")
+    public class ORMController {
+        @Autowired
+        private ORMDao oRMDao;
 
-    @RequestMapping(value="" )
-    public String index(Model model){
+        @RequestMapping(value="" )
+        public String index(Model model){
 
-        model.addAttribute("deadlift", deadliftDao.findAll());
-        model.addAttribute("overheadpress", overHeadPressDao.findAll());
-        model.addAttribute("squat", squatDao.findAll());
-        model.addAttribute("benchpress", benchPressDao.findAll());
-        model.addAttribute("bentoverrow", bentOverRowDao.findAll());
+            model.addAttribute("orms", oRMDao.findAll());
+            model.addAttribute("title", "One Rep Max");
+            return "swole/index";
+        }
 
-        model.addAttribute("title", "One Rep Max");
-        return "index";
+
+        @RequestMapping(value="form", method = RequestMethod.GET)
+        public String displayFormForm(Model model){
+            model.addAttribute("orm", "Add One Rep Max");
+            model.addAttribute(new ORM());
+
+            return "swole/form";
+
+
+        }
+        @RequestMapping(value="form", method= RequestMethod.POST)
+        public String processFormForm(@ModelAttribute @Valid ORM newORM,
+                                         Errors errors, Model model){
+            if (errors.hasErrors()){
+                model.addAttribute("orm", "Add One Rep Max");
+                return "swole/form";
+            }
+            oRMDao.save(newORM);
+            return"redirect:";
+        }
+
+        //@RequestMapping(value = "remove", method = RequestMethod.GET)
+        //public String displayRemoveForm(Model model) {
+        //    model.addAttribute("One Rep Max", oRMDao.findAll());
+        //    model.addAttribute("orm", "Remove One Rep Max");
+        //    return "swole/remove";
+        //}
+
+        //@RequestMapping(value = "remove", method = RequestMethod.POST)
+        //public String processRemoveForm(@RequestParam int[] oRMIds) {
+
+        //    for (int oRMId : oRMIds) {
+        //        oRMDao.delete(oRMId);
+        //    }
+
+        //    return "redirect:";
+        //}
     }
-
-    @RequestMapping (value="/form", method=RequestMethod.GET)
-    public String ormForm(Model model){
-        model.addAttribute("Deadlift", "Add Deadlift");
-        model.addAttribute(new Deadlift());
-        return "form";
-    }
-    @RequestMapping(value="/form", method=RequestMethod.POST)
-    public String ormSubmit (@ModelAttribute  Deadlift newDeadlift, Model model) {
-        model.addAttribute("deadlift", "Add deadlift");
-
-        deadliftDao.save(newDeadlift);
-        return "result";
-    }
-    }
-
 
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">My Lifts</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<nav th:fragment="navigation">
+    <a href="/swole">One Rep Max</a>
+    <a href="/swole/form">Add Lift</a>
+    <a href="/swole/photos">Photos</a>
+    <a href="/swole/workout">Workout</a>
+    <a href="/swole/profile">Profile</a>
+    <a href="/swole/remove">remove</a>
+</nav>
+</body>
+</html>

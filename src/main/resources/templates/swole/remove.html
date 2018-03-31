@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container body-content">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post">
+
+    <div th:each="orm : ${orms}" class="checkbox">
+        <input type="checkbox" name="oRMIds" th:value="${orm.oRMId}" th:id="${orm.id}"/>
+        <label th:for="${orm.id}" th:text="${orm.orm}"></label>
+        <br />
+    </div>
+
+    <input type="submit" value="Remove ORM" />
+</form>
+
+</body>
+</html>

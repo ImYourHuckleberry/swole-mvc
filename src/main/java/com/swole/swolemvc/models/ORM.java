@@ -1,68 +1,48 @@
 package com.swole.swolemvc.models;
 
-
-import com.sun.javafx.beans.IDProperty;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class ORM {
-
     @Id
     @GeneratedValue
     private int id;
 
     @NotNull
+    @Size(min=1, max=20)
     private String deadlift;
     @NotNull
+    @Size(min=1, max=20)
     private String benchpress;
     @NotNull
-    private String overheadpress;
-    @NotNull
+    @Size(min=1, max=20)
     private String squat;
     @NotNull
+    @Size(min=1, max=20)
+    private String overheadpress;
+    @NotNull
+    @Size(min=1, max=20)
     private String bentoverrow;
 
-    public Deadlift(String deadlift) {
-        this.deadlift = deadlift;
-    }
-    public Deadlift(){
-
-    }
-    public overheadpress(String overheadpress) {
-        this.overheadpress = overheadpress;
-    }
-    public overheadpress(){
-
+    public ORM(String deadlift, String benchpress, String squat, String overheadpress, String bentoverrow){
+        this.benchpress=benchpress;
+        this.deadlift=deadlift;
+        this.squat=squat;
+        this.overheadpress=overheadpress;
+        this.bentoverrow=bentoverrow;
     }
 
-    public benchpress(String benchpress) {
-        this.benchpress = benchpress;
-    }
-    public benchpress(){
+    public ORM(){
 
     }
-    public Squat(String squat) {
-        this.squat = squat;
-    }
-    public Squat(){
-
-    }
-    public bentoverrow(String bentoverrow) {
-        this.bentoverrow = getBentoverrow();
-    }
-    public bentoverrow(){
-
-    }
-
 
     public int getId() {
         return id;
     }
-
 
     public String getDeadlift() {
         return deadlift;
@@ -80,20 +60,20 @@ public class ORM {
         this.benchpress = benchpress;
     }
 
-    public String getOverheadpress() {
-        return overheadpress;
-    }
-
-    public void setOverheadpress(String overheadpress) {
-        this.overheadpress = overheadpress;
-    }
-
     public String getSquat() {
         return squat;
     }
 
     public void setSquat(String squat) {
         this.squat = squat;
+    }
+
+    public String getOverheadpress() {
+        return overheadpress;
+    }
+
+    public void setOverheadpress(String overheadpress) {
+        this.overheadpress = overheadpress;
     }
 
     public String getBentoverrow() {
@@ -103,6 +83,4 @@ public class ORM {
     public void setBentoverrow(String bentoverrow) {
         this.bentoverrow = bentoverrow;
     }
-
-
 }

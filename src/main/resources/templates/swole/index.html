@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">default title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+
+
+
+<table class = "table">
+    <tr>
+        <th>Deadlift</th>
+        <th>Bench Press</th>
+        <th>Squat</th>
+        <th>Over Head Press</th>
+        <th>Bent Over Row</th>
+    </tr>
+
+    <tr th:each="orm : ${orms}">
+        <td th:text="${orm.deadlift}"></td>
+        <td th:text="${orm.benchpress}"></td>
+        <td th:text="${orm.squat}"></td>
+        <td th:text="${orm.overheadpress}"></td>
+        <td th:text="${orm.bentoverrow}"></td>
+    </tr>
+</table>
+
+
+</body>
+</html>
