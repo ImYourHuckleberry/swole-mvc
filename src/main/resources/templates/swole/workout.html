@@ -13,12 +13,9 @@
 
 <table class = "table">
     <tr>
-        <th>Deadlift</th>
-        <th>Bench Press</th>
-        <th>Squat</th>
-        <th>Over Head Press</th>
-        <th>Bent Over Row</th>
-    </tr>
+        <th>Lift</th>
+        <th>Weight</th>
+
 
     <tr th:each= "orm, iterStat : ${orms}" th:if="${iterStat.index>= iterStat.size-1}">
         <td th:text="${orm.deadlift}"></td>

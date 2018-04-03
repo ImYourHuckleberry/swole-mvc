@@ -13,30 +13,31 @@ public class ORM {
     private int id;
 
     @NotNull
-    @Size(min=1, max=20)
-    private String deadlift;
-    @NotNull
-    @Size(min=1, max=20)
-    private String benchpress;
-    @NotNull
-    @Size(min=1, max=20)
-    private String squat;
-    @NotNull
-    @Size(min=1, max=20)
-    private String overheadpress;
-    @NotNull
-    @Size(min=1, max=20)
-    private String bentoverrow;
 
-    public ORM(String deadlift, String benchpress, String squat, String overheadpress, String bentoverrow){
-        this.benchpress=benchpress;
-        this.deadlift=deadlift;
-        this.squat=squat;
-        this.overheadpress=overheadpress;
-        this.bentoverrow=bentoverrow;
+    private int deadlift;
+    @NotNull
+
+    private int benchpress;
+    @NotNull
+
+    private int squat;
+    @NotNull
+
+    private int overheadpress;
+    @NotNull
+
+    private int bentoverrow;
+
+    public ORM(int deadlift, int benchpress, int squat, int overheadpress, int bentoverrow) {
+        this.benchpress = benchpress;
+        this.deadlift = deadlift;
+        this.squat = squat;
+        this.overheadpress = overheadpress;
+        this.bentoverrow = bentoverrow;
     }
 
-    public ORM(){
+
+    public ORM() {
 
     }
 
@@ -44,43 +45,43 @@ public class ORM {
         return id;
     }
 
-    public String getDeadlift() {
+    public int getDeadlift() {
         return deadlift;
     }
 
-    public void setDeadlift(String deadlift) {
+    public void setDeadlift(int deadlift) {
         this.deadlift = deadlift;
     }
 
-    public String getBenchpress() {
+    public int getBenchpress() {
         return benchpress;
     }
 
-    public void setBenchpress(String benchpress) {
+    public void setBenchpress(int benchpress) {
         this.benchpress = benchpress;
     }
 
-    public String getSquat() {
+    public int getSquat() {
         return squat;
     }
 
-    public void setSquat(String squat) {
+    public void setSquat(int squat) {
         this.squat = squat;
     }
 
-    public String getOverheadpress() {
+    public int getOverheadpress() {
         return overheadpress;
     }
 
-    public void setOverheadpress(String overheadpress) {
+    public void setOverheadpress(int overheadpress) {
         this.overheadpress = overheadpress;
     }
 
-    public String getBentoverrow() {
+    public int getBentoverrow() {
         return bentoverrow;
     }
 
-    public void setBentoverrow(String bentoverrow) {
+    public void setBentoverrow(int bentoverrow) {
         this.bentoverrow = bentoverrow;
     }
 }

@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import com.swole.swolemvc.models.data.ORMDao;
+
+
 
 import javax.validation.Valid;
 
@@ -45,9 +48,12 @@ import javax.validation.Valid;
             return"redirect:";
         }
 
+        // @RequestMapping (value="workout", method=RequestMethod.GET)
+        //public String processWorkoutForm ()
+/**
         @RequestMapping(value = "remove", method = RequestMethod.GET)
         public String displayRemoveForm(Model model) {
-            model.addAttribute("orms", oRMDao.findAll());
+            model.addAttribute("oRMs", oRMDao.findAll());
             model.addAttribute("title", "Remove One Rep Max");
             return "swole/remove";
         }
@@ -61,7 +67,7 @@ import javax.validation.Valid;
 
             return "redirect:";
         }
-
+**/
     }
 
 
