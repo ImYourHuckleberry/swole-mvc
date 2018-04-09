@@ -14,19 +14,19 @@ public class ORM {
 
     @NotNull
 
-    private int deadlift;
+    public int deadlift;
     @NotNull
 
-    private int benchpress;
+    public int benchpress;
     @NotNull
 
-    private int squat;
+    public int squat;
     @NotNull
 
-    private int overheadpress;
+    public int overheadpress;
     @NotNull
 
-    private int bentoverrow;
+    public int bentoverrow;
 
     public ORM(int deadlift, int benchpress, int squat, int overheadpress, int bentoverrow) {
         this.benchpress = benchpress;
@@ -84,4 +84,6 @@ public class ORM {
     public void setBentoverrow(int bentoverrow) {
         this.bentoverrow = bentoverrow;
     }
+
+
 }

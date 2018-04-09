@@ -1,7 +1,7 @@
 package com.swole.swolemvc.controllers;
 
-import com.swole.swolemvc.models.ORM;
-import com.swole.swolemvc.models.data.*;
+import com.swole.swolemvc.models.Rep;
+import com.swole.swolemvc.models.data.RepDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,11 +18,13 @@ import javax.validation.Valid;
     public class ORMController {
         @Autowired
         private ORMDao oRMDao;
+        private RepDao repDao;
 
         @RequestMapping(value="" )
         public String index(Model model){
 
             model.addAttribute("orms", oRMDao.findAll());
+
             model.addAttribute("title", "One Rep Max");
             return "swole/index";
         }
@@ -32,6 +34,7 @@ import javax.validation.Valid;
         public String displayFormForm(Model model){
             model.addAttribute("orm", "Add One Rep Max");
             model.addAttribute(new ORM());
+            //used to be just ORM now this whole import thing
 
             return "swole/form";
 
@@ -48,8 +51,19 @@ import javax.validation.Valid;
             return"redirect:";
         }
 
-        // @RequestMapping (value="workout", method=RequestMethod.GET)
-        //public String processWorkoutForm ()
+        @RequestMapping (value="workout", method=RequestMethod.GET)
+        public String displayWorkoutForm(Model model){
+            model.addAttribute("rep", "repWeight");
+            model.addAttribute(new Rep());
+            return "swole/workout";
+
+        }
+        @RequestMapping (value="workout", method=RequestMethod.POST)
+            public String processWorkoutForm (@ModelAttribute @Valid Rep newRep){
+            repDao.save(newRep);
+            return "redirect:";
+        }
+
 /**
         @RequestMapping(value = "remove", method = RequestMethod.GET)
         public String displayRemoveForm(Model model) {
@@ -68,6 +82,7 @@ import javax.validation.Valid;
             return "redirect:";
         }
 **/
-    }
 
 
+
+}
