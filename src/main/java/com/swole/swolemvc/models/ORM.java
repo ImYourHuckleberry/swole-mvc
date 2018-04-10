@@ -11,7 +11,7 @@ public class ORM {
     @Id
     @GeneratedValue
     private int id;
-
+    private int dtype;
     @NotNull
 
     public int deadlift;
@@ -85,5 +85,7 @@ public class ORM {
         this.bentoverrow = bentoverrow;
     }
 
-
+    public static void main (String [] args){
+        deadlift deadlift = new Deadlift();
+    }
 }
