@@ -1,8 +1,12 @@
 package com.swole.swolemvc.models;
 
-public class Rep {
+public class Rep extends ORM{
+
+    static int weekOnePercent = (7/10);
+
     public static void main(String [] args){
-        ORM deadlift = new ORM();
-        return deadlift.deadlift*.7;
+        Rep deadliftRep = new Rep();
+        deadliftRep.deadlift = deadliftRep.deadlift * weekOnePercent;
+        System.out.println(deadliftRep.deadlift);
     }
 }

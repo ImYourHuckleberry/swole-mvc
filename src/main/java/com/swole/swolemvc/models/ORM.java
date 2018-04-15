@@ -85,7 +85,4 @@ public class ORM {
         this.bentoverrow = bentoverrow;
     }
 
-    public static void main (String [] args){
-        deadlift deadlift = new Deadlift();
-    }
 }
