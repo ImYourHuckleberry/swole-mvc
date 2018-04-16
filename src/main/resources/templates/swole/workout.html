@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">default title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" th:object="${Rep}">
+    <div class="form-group">
+        <label th:for="deadliftRep.deadlift">Deadlift Max:</label>
+        <input class="form-control" th:field="*{deadliftRep.deadlift}"/>
+        <span th:errors="*{deadliftRep.deadlift}" class="error"></span>
+    </div>
+    <div class = "form-group">
+        <label th:for = "benchpress">Bench Press Max</label>
+        <input class="form control" th:field="*{benchpress}"/>
+        <span th:errors="*{benchpress}" class="error"></span>
+    </div>
+    <div class = "form-group">
+        <label th:for = "squat">Squat Max</label>
+        <input class="form control" th:field="*{squat}"/>
+        <span th:errors="*{squat}" class="error"></span>
+    </div>
+    <div class = "form-group">
+        <label th:for = "overheadpress">Over Head Press Max</label>
+        <input class="form control" th:field="*{overheadpress}"/>
+        <span th:errors="*{overheadpress}" class="error"></span>
+    </div>
+    <div class = "form-group">
+        <label th:for = "bentoverrow">Bent Over Row Max</label>
+        <input class="form control" th:field="*{bentoverrow}"/>
+        <span th:errors="*{bentoverrow}" class="error"></span>
+    </div>
+
+
+
+    <input type = "submit" value="Add Maxes" />
+</form>
+
+</body>
+</html>
+
+
+
