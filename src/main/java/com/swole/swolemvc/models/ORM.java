@@ -7,11 +7,13 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
+
 public class ORM {
     @Id
     @GeneratedValue
     private int id;
-    private int dtype;
+
+
     @NotNull
 
     public int deadlift;
@@ -27,6 +29,8 @@ public class ORM {
     @NotNull
 
     public int bentoverrow;
+
+    public int dtype;
 
     public ORM(int deadlift, int benchpress, int squat, int overheadpress, int bentoverrow) {
         this.benchpress = benchpress;

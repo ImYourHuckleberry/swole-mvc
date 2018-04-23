@@ -2,7 +2,6 @@ package com.swole.swolemvc.controllers;
 
 
 import com.swole.swolemvc.models.ORM;
-import com.swole.swolemvc.models.Rep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +40,7 @@ import javax.validation.Valid;
 
 
         }
-/**        @RequestMapping(value="form", method= RequestMethod.POST)
+        @RequestMapping(value="form", method= RequestMethod.POST)
         public String processFormForm(@ModelAttribute @Valid ORM newORM,
                                          Errors errors, Model model){
             if (errors.hasErrors()){
@@ -52,7 +51,7 @@ import javax.validation.Valid;
             return"redirect:";
         }
 
-       @RequestMapping (value="workout", method=RequestMethod.GET)
+/**       @RequestMapping (value="workout", method=RequestMethod.GET)
         public String displayWorkoutForm(Model model){
             model.addAttribute("rep", new Rep());
             model.addAttribute(new Rep());
