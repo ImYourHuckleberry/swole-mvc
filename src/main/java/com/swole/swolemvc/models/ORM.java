@@ -16,23 +16,23 @@ public class ORM {
 
     @NotNull
 
-    public int deadlift;
+    public float deadlift;
     @NotNull
 
-    public int benchpress;
+    public float benchpress;
     @NotNull
 
-    public int squat;
+    public float squat;
     @NotNull
 
-    public int overheadpress;
+    public float overheadpress;
     @NotNull
 
-    public int bentoverrow;
+    public float bentoverrow;
 
     public int dtype;
 
-    public ORM(int deadlift, int benchpress, int squat, int overheadpress, int bentoverrow) {
+    public ORM(float deadlift, float benchpress, float squat, float overheadpress, float bentoverrow) {
         this.benchpress = benchpress;
         this.deadlift = deadlift;
         this.squat = squat;
@@ -49,43 +49,43 @@ public class ORM {
         return id;
     }
 
-    public int getDeadlift() {
+    public float getDeadlift() {
         return deadlift;
     }
 
-    public void setDeadlift(int deadlift) {
+    public void setDeadlift(float deadlift) {
         this.deadlift = deadlift;
     }
 
-    public int getBenchpress() {
+    public float getBenchpress() {
         return benchpress;
     }
 
-    public void setBenchpress(int benchpress) {
+    public void setBenchpress(float benchpress) {
         this.benchpress = benchpress;
     }
 
-    public int getSquat() {
+    public float getSquat() {
         return squat;
     }
 
-    public void setSquat(int squat) {
+    public void setSquat(float squat) {
         this.squat = squat;
     }
 
-    public int getOverheadpress() {
+    public float getOverheadpress() {
         return overheadpress;
     }
 
-    public void setOverheadpress(int overheadpress) {
+    public void setOverheadpress(float overheadpress) {
         this.overheadpress = overheadpress;
     }
 
-    public int getBentoverrow() {
+    public float getBentoverrow() {
         return bentoverrow;
     }
 
-    public void setBentoverrow(int bentoverrow) {
+    public void setBentoverrow(float bentoverrow) {
         this.bentoverrow = bentoverrow;
     }
 

@@ -2,6 +2,7 @@ package com.swole.swolemvc.controllers;
 
 
 import com.swole.swolemvc.models.ORM;
+import com.swole.swolemvc.models.RepCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +18,14 @@ import javax.validation.Valid;
     @RequestMapping("swole")
     public class ORMController {
         @Autowired
-        private ORMDao oRMDao;
+        private ORMDao ormDao;
 
 
         @RequestMapping(value="" )
         public String index(Model model){
 
-            model.addAttribute("orms", oRMDao.findAll());
+            model.addAttribute("orm", ormDao.findMostRecent());
+            //if this is bad its the sql i wrote, and if it always gives same one we shouldnt order by desc
 
             model.addAttribute("title", "One Rep Max");
             return "swole/index";
@@ -47,42 +49,17 @@ import javax.validation.Valid;
                 model.addAttribute("orm", "Add One Rep Max");
                 return "swole/form";
             }
-            oRMDao.save(newORM);
+            ormDao.save(newORM);
             return"redirect:";
         }
 
-/**       @RequestMapping (value="workout", method=RequestMethod.GET)
-        public String displayWorkoutForm(Model model){
-            model.addAttribute("rep", new Rep());
-            model.addAttribute(new Rep());
+        @RequestMapping (value="workout", method= RequestMethod.GET)
+        public String displayWorkoutForm(Model model) {
+            model.addAttribute("title", "Your Daily Lifts");
+            model.addAttribute("rep", RepCalculator.Lift(ormDao.findMostRecent()));
             return "swole/workout";
 
         }
-        @RequestMapping (value="workout", method=RequestMethod.POST)
-            public String processWorkoutForm (@ModelAttribute @Valid Rep newRep){
-        //    repDao.save(newRep);
-            return "swole/workout:";
-        }
-**/
-/**
-        @RequestMapping(value = "remove", method = RequestMethod.GET)
-        public String displayRemoveForm(Model model) {
-            model.addAttribute("oRMs", oRMDao.findAll());
-            model.addAttribute("title", "Remove One Rep Max");
-            return "swole/remove";
+
         }
 
-        @RequestMapping(value = "remove", method = RequestMethod.POST)
-        public String processRemoveForm(@RequestParam int[] oRMIds) {
-
-            for (int oRMId : oRMIds) {
-                oRMDao.delete(oRMId);
-            }
-
-            return "redirect:";
-        }
-**/
-
-
-
-}

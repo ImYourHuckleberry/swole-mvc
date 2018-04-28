@@ -20,7 +20,7 @@
         <th>Bent Over Row</th>
     </tr>
 
-    <tr th:each= "orm, iterStat : ${orms}" th:if="${iterStat.index>= iterStat.size-1}">
+    <tr th:object="${orm}">
         <td th:text="${orm.deadlift}"></td>
         <td th:text="${orm.benchpress}"></td>
         <td th:text="${orm.squat}"></td>

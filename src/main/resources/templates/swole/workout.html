@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+
 <body class="container">
+
 <h1 th:text="${title}">default title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<form method="post" style="max-width:600px;" th:object="${Rep}">
-    <div class="form-group">
-        <label th:for="deadliftRep.deadlift">Deadlift Max:</label>
-        <input class="form-control" th:field="*{deadliftRep.deadlift}"/>
-        <span th:errors="*{deadliftRep.deadlift}" class="error"></span>
-    </div>
 
 
 
+<table class = "table">
+    <tr>
+        <th>Deadlift</th>
+        <th>Squat</th>
+        <th>Overhead Press</th>
+        <th>Bench</th>
+        <th>Bent Over Row</th>
+    </tr>
 
-    <input type = "submit" value="Add Maxes" />
-</form>
+    <<tr th:each="row: ${rep}">
+    <td th:each="col: ${row}"><span th:text="${col}"></td>
+    </td>
+</tr>
+
+    </tr>
+</table>
+
 
 </body>
 </html>
-
-
-
