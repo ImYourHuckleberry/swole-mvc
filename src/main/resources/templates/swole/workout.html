@@ -13,18 +13,18 @@
 
 <table class = "table">
     <tr>
+        <th> </th>
         <th>Deadlift</th>
         <th>Squat</th>
         <th>Overhead Press</th>
         <th>Bench</th>
         <th>Bent Over Row</th>
+
     </tr>
 
-    <<tr th:each="row: ${rep}">
-    <td th:each="col: ${row}"><span th:text="${col}"></td>
-    </td>
-</tr>
-
+    <tr th:each="week: ${rep}">
+        <td th:text="${week.weekName}"></td>
+        <td th:each="col: ${week.reps}"><span th:text="${col}"></span></td>
     </tr>
 </table>
 
