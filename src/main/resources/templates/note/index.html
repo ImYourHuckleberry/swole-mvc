@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">default title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+
+
+
+<table class = "table">
+    <tr>
+        <th>note title</th>
+        <th>note body</th>
+
+
+    </tr>
+
+    <tr th:object="${note}">
+        <td th:text="${note.noteTitle}"></td>
+        <td th:text="${orm.noteBody}"></td>
+
+    </tr>
+</table>
+
+
+</body>
+</html>
