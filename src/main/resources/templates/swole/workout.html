@@ -13,19 +13,18 @@
 
 <table class = "table">
     <tr>
+        <th> </th>
         <th>Deadlift</th>
-        <th>Bench Press</th>
         <th>Squat</th>
-        <th>Over Head Press</th>
+        <th>Overhead Press</th>
+        <th>Bench</th>
         <th>Bent Over Row</th>
+
     </tr>
 
-    <tr th:object="${orm}">
-        <td th:text="${orm.deadlift}"></td>
-        <td th:text="${orm.benchpress}"></td>
-        <td th:text="${orm.squat}"></td>
-        <td th:text="${orm.overheadpress}"></td>
-        <td th:text="${orm.bentoverrow}"></td>
+    <tr th:each="week: ${rep}">
+        <td th:text="${week.weekName}"></td>
+        <td th:each="col: ${week.reps}"><span th:text="${col}"></span></td>
     </tr>
 </table>
 
