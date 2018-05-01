@@ -7,36 +7,41 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
+
 public class ORM {
     @Id
     @GeneratedValue
     private int id;
 
-    @NotNull
-    @Size(min=1, max=20)
-    private String deadlift;
-    @NotNull
-    @Size(min=1, max=20)
-    private String benchpress;
-    @NotNull
-    @Size(min=1, max=20)
-    private String squat;
-    @NotNull
-    @Size(min=1, max=20)
-    private String overheadpress;
-    @NotNull
-    @Size(min=1, max=20)
-    private String bentoverrow;
 
-    public ORM(String deadlift, String benchpress, String squat, String overheadpress, String bentoverrow){
-        this.benchpress=benchpress;
-        this.deadlift=deadlift;
-        this.squat=squat;
-        this.overheadpress=overheadpress;
-        this.bentoverrow=bentoverrow;
+    @NotNull
+
+    public float deadlift;
+    @NotNull
+
+    public float benchpress;
+    @NotNull
+
+    public float squat;
+    @NotNull
+
+    public float overheadpress;
+    @NotNull
+
+    public float bentoverrow;
+
+    public int dtype;
+
+    public ORM(float deadlift, float benchpress, float squat, float overheadpress, float bentoverrow) {
+        this.benchpress = benchpress;
+        this.deadlift = deadlift;
+        this.squat = squat;
+        this.overheadpress = overheadpress;
+        this.bentoverrow = bentoverrow;
     }
 
-    public ORM(){
+
+    public ORM() {
 
     }
 
@@ -44,43 +49,44 @@ public class ORM {
         return id;
     }
 
-    public String getDeadlift() {
+    public float getDeadlift() {
         return deadlift;
     }
 
-    public void setDeadlift(String deadlift) {
+    public void setDeadlift(float deadlift) {
         this.deadlift = deadlift;
     }
 
-    public String getBenchpress() {
+    public float getBenchpress() {
         return benchpress;
     }
 
-    public void setBenchpress(String benchpress) {
+    public void setBenchpress(float benchpress) {
         this.benchpress = benchpress;
     }
 
-    public String getSquat() {
+    public float getSquat() {
         return squat;
     }
 
-    public void setSquat(String squat) {
+    public void setSquat(float squat) {
         this.squat = squat;
     }
 
-    public String getOverheadpress() {
+    public float getOverheadpress() {
         return overheadpress;
     }
 
-    public void setOverheadpress(String overheadpress) {
+    public void setOverheadpress(float overheadpress) {
         this.overheadpress = overheadpress;
     }
 
-    public String getBentoverrow() {
+    public float getBentoverrow() {
         return bentoverrow;
     }
 
-    public void setBentoverrow(String bentoverrow) {
+    public void setBentoverrow(float bentoverrow) {
         this.bentoverrow = bentoverrow;
     }
+
 }
